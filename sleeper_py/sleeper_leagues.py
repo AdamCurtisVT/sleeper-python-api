@@ -333,7 +333,6 @@ class ScoringSettings(object):
         self.DefensiveTouchdown = jsonText['def_td']
         self.ExtraPointMade = jsonText['xpm']
         self.ExtraPointMissed = jsonText['xpmiss']
-        self.FieldGoalMade = jsonText['fgm']
         self.FieldGoalMadeBetween0And19 = jsonText['fgm_0_19']
         self.FieldGoalMadeBetween20And29 = jsonText['fgm_20_29']
         self.FieldGoalMadeBetween30And39 = jsonText['fgm_30_39']
@@ -367,7 +366,9 @@ class ScoringSettings(object):
         self.SpecialTeamsFumbleRecovery = jsonText['st_fum_rec']
         self.SpecialTeamsTouchdown = jsonText['st_td']
         self.TwoPointReception = jsonText['rec_2pt']
-
+        if 'fgm' in jsonText:
+            self.FieldGoalMade = jsonText['fgm']
+            
 class Transaction(object):
     Adds = None
     ConsenterIds = None
